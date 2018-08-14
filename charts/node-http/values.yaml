@@ -7,7 +7,7 @@ image:
   tag: dev
   pullPolicy: IfNotPresent
 service:
-  name: node-http
+  name: node-test
   type: ClusterIP
   externalPort: 80
   internalPort: 8080

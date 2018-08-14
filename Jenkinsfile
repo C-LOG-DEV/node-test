@@ -4,7 +4,7 @@ pipeline {
     }
     environment {
       ORG               = 'igor-clog-io'
-      APP_NAME          = 'node-http'
+      APP_NAME          = 'node-test'
       CHARTMUSEUM_CREDS = credentials('jenkins-x-chartmuseum')
     }
     stages {
@@ -50,7 +50,7 @@ pipeline {
             // so we can retrieve the version in later steps
             sh "echo \$(jx-release-version) > VERSION"
           }
-          dir ('./charts/node-http') {
+          dir ('./charts/node-test') {
             container('nodejs') {
               sh "make tag"
             }
@@ -70,7 +70,7 @@ pipeline {
           branch 'master'
         }
         steps {
-          dir ('./charts/node-http') {
+          dir ('./charts/node-test') {
             container('nodejs') {
               sh 'jx step changelog --version v\$(cat ../../VERSION)'
 
