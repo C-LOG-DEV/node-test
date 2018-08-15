@@ -10,6 +10,7 @@
 * 	Template Style 
 *
 * ======================================================= */
+
 body {
   font-family: "Poppins", Arial, sans-serif;
   font-weight: 300;
@@ -90,9 +91,9 @@ h1, h2, h3, h4, h5, h6, figure {
 
 
 .logo {
-  background: url("/images/logo.svg");
+  background: url("/images/logo-2.svg");
   background-repeat: no-repeat;
-  height: 35px;
+  height: 32px;
 }
 
 .mid-nav {
@@ -304,7 +305,7 @@ h1, h2, h3, h4, h5, h6, figure {
     z-index: 1; }
   .video-hero .display-t {
     display: table;
-    height: 700px;
+    height: 100%;
     width: 100%;
     position: relative;
     z-index: 2; }
@@ -336,7 +337,7 @@ h1, h2, h3, h4, h5, h6, figure {
       font-family: "Nunito", Arial, sans-serif;
       color: #fff;
       font-weight: 200;
-      font-size: 30px; }
+      font-size: 18px; }
     .video-hero .display-tc p.breadcrumbs {
       font-size: 14px; }
       .video-hero .display-tc p.breadcrumbs span {
@@ -1127,6 +1128,22 @@ input[type="text"] {
       font-size: 13px; }
       #mid-footer .copy p small a {
         color: rgba(255, 255, 255, 0.7); }
+
+.footer-logo {
+  height: 100px;
+  padding-bottom: 20px;
+  margin: 0 auto;
+  display: block;
+}
+
+.mid-private-form, .mid-business-form {
+  margin-top: 10px;
+  text-align: left;
+}
+
+.mid-private-form, .mid-business-form .form-text {
+  font-size: 10px;
+}
 
 #map {
   width: 100%;
