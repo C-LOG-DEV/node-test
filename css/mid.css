@@ -1,0 +1,77 @@
+@font-face {
+  font-family: 'mid';
+  src:  url('../fonts/mid/mid.eot?wx1ebg');
+  src:  url('../fonts/mid/mid.eot?wx1ebg#iefix') format('embedded-opentype'),
+    url('../fonts/mid/mid.ttf?wx1ebg') format('truetype'),
+    url('../fonts/mid/mid.woff?wx1ebg') format('woff'),
+    url('../fonts/mid/mid.svg?wx1ebg#mid') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'mid' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-work-outlined:before {
+  content: "\e900";
+}
+.icon-connect-full:before {
+  content: "\e901";
+}
+.icon-connect-outlined:before {
+  content: "\e902";
+}
+.icon-documentation-full:before {
+  content: "\e903";
+}
+.icon-documentation-outlined:before {
+  content: "\e904";
+}
+.icon-id-female-full:before {
+  content: "\e905";
+}
+.icon-id-female-outlined:before {
+  content: "\e906";
+}
+.icon-id-full:before {
+  content: "\e907";
+}
+.icon-id-outlined:before {
+  content: "\e908";
+}
+.icon-more-full:before {
+  content: "\e909";
+}
+.icon-more-outlined:before {
+  content: "\e90a";
+}
+.icon-work-full:before {
+  content: "\e90b";
+}
+.icon-play:before {
+  content: "\ea1c";
+}
+.icon-arrow-up:before {
+  content: "\ea3a";
+}
+.icon-arrow-right:before {
+  content: "\ea3c";
+}
+.icon-arrow-down:before {
+  content: "\ea3e";
+}
+.icon-arrow-left:before {
+  content: "\ea40";
+}
