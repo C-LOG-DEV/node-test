@@ -6,5 +6,8 @@
   "scripts": {
     "test": "echo \"no test specified\" && exit 0",
     "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.16.3"
   }
 }
