@@ -218,27 +218,33 @@
 						</a>
 						<div class="tab-content" id="pills-tabContent">
 							<div class="tab-pane fade" id="private" role="tabpanel" aria-labelledby="private-tab">
-								<form class="mid-private-form">
+								<form class="mid-subscribe-form" action="/add-subscriber">
 									<div class="form-group">
-										<input type="text" class="form-control" id="name" aria-describedby="name" placeholder="Your Name">
+										<input type="text" class="form-control" name="firstname" placeholder="Your First Name">
 									</div>
 									<div class="form-group">
-										<input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email">
+										<input type="text" class="form-control" name="lastname" placeholder="Your Last Name">
+									</div>
+									<div class="form-group">
+										<input type="email" class="form-control" name="email" id="email" aria-describedby="emailHelp" placeholder="Enter email">
 										<small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
 									</div>
 									<button type="submit" class="btn btn-primary">Submit</button>
 								</form>
 							</div>
 							<div class="tab-pane fade" id="business" role="tabpanel" aria-labelledby="business-tab">
-								<form class="mid-business-form">
+								<form class="mid-subscribe-form" action="/add-subscriber">
 									<div class="form-group">
-										<input type="text" class="form-control" id="name" aria-describedby="name" placeholder="Your Name">
+										<input type="text" class="form-control" name="firstname" placeholder="Your First Name">
 									</div>
 									<div class="form-group">
-										<input type="text" class="form-control" id="company" aria-describedby="company" placeholder="Company Name">
+										<input type="text" class="form-control" name="lastname" placeholder="Your Last Name">
 									</div>
 									<div class="form-group">
-										<input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email">
+										<input type="text" class="form-control" name="company" placeholder="Company Name">
+									</div>
+									<div class="form-group">
+										<input type="email" class="form-control" name="email" aria-describedby="emailHelp" placeholder="Enter email">
 										<small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
 									</div>
 									<button type="submit" class="btn btn-primary">Submit</button>
@@ -300,6 +306,26 @@
 	<script src="js/jquery.countTo.js"></script>
 	<!-- Main -->
 	<script src="js/main.js"></script>
+
+	<script>
+
+		// Submit form(s)
+		$(".mid-subscribe-form").on("submit", function(e) {
+			e.preventDefault();
+			let form = this;
+
+			$.post(form.action, $(form).serialize(), function(response) {
+				if (response === 'OK') {
+					// TODO: Display success message
+
+					// Reset form
+					form.reset();
+				} else {
+					// TODO: Display error message
+				}
+			});
+		});
+	</script>
 
 </body>
 
