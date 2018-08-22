@@ -4,6 +4,7 @@ htmlDir = './html/'
 var app = express();
 const request = require("request")
 const bodyParser = require('body-parser')
+const API_KEY = 'Bearer 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'
 
 //Log all requests
 //app.use(express.logger());
@@ -22,13 +23,14 @@ app.get('/', function(request, response) {
     response.sendFile(htmlDir + '/index.html');
 });
 
+// Add contact to SendGrid
 app.post('/add-subscriber', function(req, res) {
     let options = {
         method: 'POST',
         url: 'https://api.sendgrid.com/v3/contactdb/recipients',
         headers: {
             'content-type': 'application/json',
-            authorization: 'Bearer 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'
+            authorization: API_KEY
         },
         body: [{
             email: req.body.email,
@@ -40,7 +42,46 @@ app.post('/add-subscriber', function(req, res) {
     }
 
     request(options, function (error, response, body) {
-        if (body.errors.length) {
+        if (error || body.errors.length) {
+            return res.status(500).json({message: body.errors[0].message})
+        };
+
+        return res.json('OK')
+    });
+})
+
+// Send email through SendGrid
+app.post('/send-email', function(req, res) {
+    let mail = { 
+        method: 'POST',
+        url: 'https://api.sendgrid.com/v3/mail/send',
+        headers: { 
+            'content-type': 'application/json',
+            authorization: API_KEY
+        },
+        body: { 
+            personalizations: [{ 
+                to: [{ 
+                    email: 'elia@c-log.io',
+                    name: 'Test'
+                }],
+            }],
+            from: { 
+                email: req.body.email, 
+                name: `${req.body.fname} ${req.body.lname}`
+            },
+            subject: req.body.subject,
+            content: [{
+                type: 'text/html',
+                value: req.body.message
+            }]
+        },
+        json: true 
+    };
+
+    request(mail, function (error, response, body) {
+        console.log(error, body, response)
+        if (body && body.errors) {
             return res.status(500).json({message: body.errors[0].message})
         };
 
