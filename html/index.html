@@ -61,8 +61,8 @@
 					<div class="row">
 						<div class="col-md-2">
 							<div id="mid-logo">
-								<a href="index.html" class="logo">
-									<div class="logo"></div>
+								<a href="index.html">
+									<img src="images/logo-2.svg" class="logo" />
 								</a>
 							</div>
 						</div>
@@ -90,11 +90,12 @@
 					<div class="container">
 						<div class="col-md-12 col-md-offset-0">
 							<div class="animate-box">
-								<h2>What is Maritime ID?</h2>
-								<p>A comprehensive ID solution that sums your professional experiences and qualifications,
-									<br> and lets you share this information with your employer easily, safely and for free.</p>
+								<img src="images/logo-2.svg" class="footer-logo" />
+								<p>One ID solution shared between all operators in the industry
+									<br>Connect easily, safely & free
+								</p>
 								<p>
-									<a href="request.html" class="btn btn-primary btn-lg btn-custom">Request Early Access</a>
+									<a href="#subscribe" class="btn btn-primary btn-lg btn-custom">Request Early Access</a>
 								</p>
 							</div>
 						</div>
@@ -191,7 +192,7 @@
 								</div>
 							</div>
 							<p>
-								<a href="#" class="btn btn-primary btn-outline with-arrow">Request Early Access
+								<a href="#subscribe" class="btn btn-primary btn-outline with-arrow">Request Early Access
 									<i class="icon-arrow-right"></i>
 								</a>
 							</p>
@@ -201,7 +202,7 @@
 			</div>
 		</div>
 
-		<div class="mid-intro mid-bg-white">
+		<div id="subscribe" class="mid-intro mid-bg-white">
 			<div class="container">
 				<div class="row">
 					<div class="col-md-8 col-md-offset-2 text-center mid-heading animate-box">
@@ -218,34 +219,36 @@
 						</a>
 						<div class="tab-content" id="pills-tabContent">
 							<div class="tab-pane fade" id="private" role="tabpanel" aria-labelledby="private-tab">
+								<div id="success-msg" class="alert-success hide">Your message has been sent</div>
 								<form class="mid-subscribe-form" action="/add-subscriber">
 									<div class="form-group">
-										<input type="text" class="form-control" name="firstname" placeholder="Your First Name">
+										<input type="text" class="form-control" name="firstname" placeholder="Your First Name" required>
 									</div>
 									<div class="form-group">
-										<input type="text" class="form-control" name="lastname" placeholder="Your Last Name">
+										<input type="text" class="form-control" name="lastname" placeholder="Your Last Name" required>
 									</div>
 									<div class="form-group">
-										<input type="email" class="form-control" name="email" id="email" aria-describedby="emailHelp" placeholder="Enter email">
+										<input type="email" class="form-control" name="email" id="email" aria-describedby="emailHelp" placeholder="Enter email" required>
 										<small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
 									</div>
 									<button type="submit" class="btn btn-primary">Submit</button>
 								</form>
 							</div>
 							<div class="tab-pane fade" id="business" role="tabpanel" aria-labelledby="business-tab">
+								<div id="error-msg" class="alert-danger hide">Error!</div>
 								<form class="mid-subscribe-form" action="/add-subscriber">
 									<div class="form-group">
-										<input type="text" class="form-control" name="firstname" placeholder="Your First Name">
+										<input type="text" class="form-control" name="firstname" placeholder="Your First Name" required>
 									</div>
 									<div class="form-group">
-										<input type="text" class="form-control" name="lastname" placeholder="Your Last Name">
+										<input type="text" class="form-control" name="lastname" placeholder="Your Last Name" required>
 									</div>
 									<div class="form-group">
-										<input type="text" class="form-control" name="company" placeholder="Company Name">
+										<input type="text" class="form-control" name="company" placeholder="Company Name" required>
 									</div>
 									<div class="form-group">
-										<input type="email" class="form-control" name="email" aria-describedby="emailHelp" placeholder="Enter email">
-										<small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+										<input type="email" class="form-control" name="email" aria-describedby="emailHelp" placeholder="Enter email" required>
+										<small id="emailHelp" class="form-text text-muted text-left">We'll never share your email with anyone else.</small>
 									</div>
 									<button type="submit" class="btn btn-primary">Submit</button>
 								</form>
@@ -263,12 +266,12 @@
 					<div class="row">
 						<div class="col-md-12 text-center">
 							<p>
-								<img src="images/logo-2.svg" class="footer-logo" /> This website and its contents are copyright &copy;
+								<img src="images/logo-2.svg" class="footer-logo" /> copyright &copy;
 								<script>
 									document.write(new Date().getFullYear());
 								</script>
 								<a href="http://c-log.io/">C-LOG IVS</a>
-								<br> Use of this website is subject to our
+								<br>
 								<a href="#">Terms &amp; Conditions</a> and
 								<a href="#">Privacy Policy.</a>
 							</p>
@@ -308,20 +311,20 @@
 	<script src="js/main.js"></script>
 
 	<script>
-
 		// Submit form(s)
-		$(".mid-subscribe-form").on("submit", function(e) {
+		$(".mid-subscribe-form").on("submit", function (e) {
 			e.preventDefault();
 			let form = this;
 
-			$.post(form.action, $(form).serialize(), function(response) {
+			$.post(form.action, $(form).serialize(), function (response) {
 				if (response === 'OK') {
-					// TODO: Display success message
-
+					// Display success message
+					$('#success-msg').removeClass('hide');
 					// Reset form
 					form.reset();
 				} else {
-					// TODO: Display error message
+					// Display error message
+					$('#error-msg').removeClass('hide');
 				}
 			});
 		});
