@@ -51,44 +51,6 @@ app.post('/add-subscriber', function(req, res) {
     });
 })
 
-// Send email through SendGrid
-app.post('/send-email', function(req, res) {
-    let mail = { 
-        method: 'POST',
-        url: 'https://api.sendgrid.com/v3/mail/send',
-        headers: { 
-            'content-type': 'application/json',
-            authorization: API_KEY
-        },
-        body: { 
-            personalizations: [{ 
-                to: [{ 
-                    email: 'elia@c-log.io',
-                    name: 'Test'
-                }],
-            }],
-            from: { 
-                email: req.body.email, 
-                name: `${req.body.fname} ${req.body.lname}`
-            },
-            subject: req.body.subject,
-            content: [{
-                type: 'text/html',
-                value: req.body.message
-            }]
-        },
-        json: true 
-    };
-
-    request(mail, function (error, response, body) {
-        if (body && body.errors) {
-            return res.status(500).json({message: body.errors[0].message})
-        };
-
-        return res.json('OK')
-    });
-})
-
 var port = process.env.PORT || 8080;
 app.listen(port, function() {
     console.log("Listening on " + port);
