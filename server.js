@@ -4,7 +4,8 @@ htmlDir = './html/'
 var app = express();
 const request = require("request")
 const bodyParser = require('body-parser')
-const API_KEY = 'Bearer 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'
+const API_KEY=process.env.SEND_GRID;
+
 
 //Log all requests
 //app.use(express.logger());
@@ -80,7 +81,6 @@ app.post('/send-email', function(req, res) {
     };
 
     request(mail, function (error, response, body) {
-        console.log(error, body, response)
         if (body && body.errors) {
             return res.status(500).json({message: body.errors[0].message})
         };
