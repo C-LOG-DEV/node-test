@@ -4,6 +4,8 @@ htmlDir = './html/'
 var app = express();
 const request = require("request")
 const bodyParser = require('body-parser')
+const API_KEY=process.env.SEND_GRID;
+
 
 //Log all requests
 //app.use(express.logger());
@@ -28,7 +30,7 @@ app.post('/add-subscriber', function(req, res) {
         url: 'https://api.sendgrid.com/v3/contactdb/recipients',
         headers: {
             'content-type': 'application/json',
-            authorization: 'Bearer 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'
+            authorization: API_KEY
         },
         body: [{
             email: req.body.email,
