@@ -24,6 +24,7 @@ app.get('/', function(request, response) {
     response.sendFile(htmlDir + '/index.html');
 });
 
+// Add contact to SendGrid
 app.post('/add-subscriber', function(req, res) {
     let options = {
         method: 'POST',
@@ -42,7 +43,7 @@ app.post('/add-subscriber', function(req, res) {
     }
 
     request(options, function (error, response, body) {
-        if (body.errors.length) {
+        if (error || body.errors.length) {
             return res.status(500).json({message: body.errors[0].message})
         };
 
