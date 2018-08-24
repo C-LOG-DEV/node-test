@@ -54,17 +54,17 @@
 
 	<div class="mid-loader"></div>
 	<div id="page">
-		<section id="home" class="video-hero" style="height: 100vh; background-image: url(images/cover_img_1.jpg);  background-size:cover; background-position: center center;background-attachment:fixed;"
+		<section id="home" class="video-hero" style="height: 100vh; background-image: url(images/m-id-hero.jpg);  background-size:cover; background-position: center center;background-attachment:fixed;"
 		    data-section="home">
-			<div class="overlay"></div>
-			<a class="player" data-property="{videoURL:'https://www.youtube.com/watch?v=ePDoCPi06rk',containment:'#home', showControls:false, autoPlay:true, loop:true, mute:true, startAt:0, opacity:1, quality:'default'}"></a>
+			<div class="overlay" style="background-image: url(images/background-blur-gradient.svg);"></div>
+			
 			<div class="display-t text-center">
 				<div class="display-tc">
 					<div class="container">
 						<div class="col-md-12 col-md-offset-0">
 							<div class="animate-box">
-								<img src="images/logo-2.svg" class="footer-logo" />
-								<p>Seafarer documentation and compliance made simple</p>
+								<img src="images/logo-black.svg" class="header-logo" />
+								<h3 class="text-shadow">Seafarer documentation and compliance made simple</h3>
 								<p>
 									<a href="#subscribe" class="btn btn-primary btn-lg btn-custom">Request Early Access</a>
 								</p>
@@ -89,17 +89,17 @@
 			<div class="container">
 				<div class="row mobile-wrap">
 					<div class="col-md-5 animate-box">
-						<div class="mobile-img" style="background-image: url(images/mobile-1.jpg);"></div>
+						<div class="mobile-img" style="background-image: url(images/app-screenshot-profile.png);"></div>
 					</div>
 					<div class="col-md-7 animate-box">
 						<div class="desc">
-							<h2>Your Very Own Profile</h2>
+							
 							<div class="features">
 								<span class="icon">
 									<i class="icon-id-outlined"></i>
 								</span>
 								<div class="f-desc">
-									<p>Your personal profile with unique identification number. Share essential information easily and safely.
+									<p>Your personal profile with a unique identification number. Share essential information easily and safely.
 									</p>
 								</div>
 							</div>
@@ -126,7 +126,7 @@
 									<i class="icon-connect-outlined"></i>
 								</span>
 								<div class="f-desc">
-									<p>Connect with your employer by allowing them to access your personal information.
+									<p>Connect with your employer by allowing them to access your data. You can decide who has access to what information for how long.
 									</p>
 								</div>
 							</div>
@@ -158,40 +158,40 @@
 						</a>
 						<div class="tab-content" id="pills-tabContent">
 							<div class="tab-pane fade" id="private" role="tabpanel" aria-labelledby="private-tab">
-								<div id="success-msg" class="alert-success hide">Your message has been sent</div>
-								<div id="error-msg" class="alert-danger hide">Error!</div>
+								<div class="success-msg alert-success hide">Thank you! We have received your request.</div>
+								<div class="error-msg alert-danger hide">An error occurred while processing your request. Please try again.</div>
 								<form class="mid-subscribe-form" action="/add-subscriber">
 									<div class="form-group">
-										<input type="text" class="form-control" name="firstname" placeholder="Your First Name" required>
+										<input type="text" class="form-control" name="firstname" placeholder="First Name" required>
 									</div>
 									<div class="form-group">
-										<input type="text" class="form-control" name="lastname" placeholder="Your Last Name" required>
+										<input type="text" class="form-control" name="lastname" placeholder="Last Name" required>
 									</div>
 									<div class="form-group">
-										<input type="email" class="form-control" name="email" id="email" aria-describedby="emailHelp" placeholder="Enter email" required>
+										<input type="email" class="form-control" name="email" id="email" aria-describedby="emailHelp" placeholder="Email" required>
 										<small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
 									</div>
-									<button type="submit" class="btn btn-primary">Submit</button>
+									<button type="submit" class="btn btn-primary">Request Early Access</button>
 								</form>
 							</div>
 							<div class="tab-pane fade" id="business" role="tabpanel" aria-labelledby="business-tab">
-								<div id="success-msg" class="alert-success hide">Your message has been sent</div>
-								<div id="error-msg" class="alert-danger hide">Error!</div>
+								<div class="success-msg alert-success hide">Thank you! We have received your request.</div>
+								<div class="error-msg alert-danger hide">An error occurred while processing your request. Please try again.</div>
 								<form class="mid-subscribe-form" action="/add-subscriber">
 									<div class="form-group">
-										<input type="text" class="form-control" name="firstname" placeholder="Your First Name" required>
+										<input type="text" class="form-control" name="firstname" placeholder="First Name" required>
 									</div>
 									<div class="form-group">
-										<input type="text" class="form-control" name="lastname" placeholder="Your Last Name" required>
+										<input type="text" class="form-control" name="lastname" placeholder="Last Name" required>
 									</div>
 									<div class="form-group">
-										<input type="text" class="form-control" name="company" placeholder="Company Name" required>
+										<input type="text" class="form-control" name="company" placeholder="Company" required>
 									</div>
 									<div class="form-group">
-										<input type="email" class="form-control" name="email" aria-describedby="emailHelp" placeholder="Enter email" required>
+										<input type="email" class="form-control" name="email" aria-describedby="emailHelp" placeholder="Email" required>
 										<small id="emailHelp" class="form-text text-muted text-left">We'll never share your email with anyone else.</small>
 									</div>
-									<button type="submit" class="btn btn-primary">Submit</button>
+									<button type="submit" class="btn btn-primary">Request Early Access</button>
 								</form>
 							</div>
 						</div>
@@ -257,12 +257,12 @@
 			$.post(form.action, $(form).serialize(), function (response) {
 				if (response === 'OK') {
 					// Display success message
-					$('#success-msg').removeClass('hide');
+					$('.success-msg').removeClass('hide');
 					// Reset form
 					form.reset();
 				} else {
 					// Display error message
-					$('#error-msg').removeClass('hide');
+					$('.error-msg').removeClass('hide');
 				}
 			});
 		});

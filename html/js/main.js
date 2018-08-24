@@ -258,9 +258,6 @@
 
 	
 	$(function(){
-		mobileMenuOutsideClick();
-		offcanvasMenu();
-		burgerMenu();
 		contentWayPoint();
 		dropdown();
 		goToTop();
@@ -269,7 +266,6 @@
 		counter();
 		counterWayPoint();
 		owlCrouselFeatureSlide();
-		bgVideo();
 	});
 
 
