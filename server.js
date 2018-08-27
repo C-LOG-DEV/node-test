@@ -37,7 +37,8 @@ app.post('/add-subscriber', function(req, res) {
             email: req.body.email,
             first_name: req.body.firstname,
             last_name: req.body.lastname,
-            company: req.body.company ? req.body.company : ''
+            company: req.body.company ? req.body.company : '',
+            source: 'm-id.io'
         }],
         json: true
     }
